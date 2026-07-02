@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do List</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<div class="app-container">
+    <header>
+        <h1>To-do List</h1>
+        <button id="logoutButton" class="secondary-button">Sair</button>
+    </header>
+
+    <section class="auth-section" id="authSection">
+        <div class="form-card">
+            <h2>Entrar</h2>
+            <form id="loginForm">
+                <input name="username" placeholder="Usuário" required />
+                <input name="password" type="password" placeholder="Senha" required />
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="alternate">Não tem conta? <a href="#" id="showRegister">Registrar</a></p>
+        </div>
+
+        <div class="form-card hidden" id="registerCard">
+            <h2>Registrar</h2>
+            <form id="registerForm">
+                <input name="username" placeholder="Usuário" required />
+                <input name="password" type="password" placeholder="Senha" required />
+                <button type="submit">Registrar</button>
+            </form>
+            <p class="alternate">Já tem conta? <a href="#" id="showLogin">Entrar</a></p>
+        </div>
+    </section>
+
+    <section class="task-section hidden" id="taskSection">
+        <div class="task-header">
+            <h2>Minhas tarefas</h2>
+            <button id="newTaskButton">Nova tarefa</button>
+        </div>
+        <div class="form-card hidden" id="taskFormCard">
+            <form id="taskForm">
+                <input name="title" placeholder="Título da tarefa" required />
+                <textarea name="description" placeholder="Descrição"></textarea>
+                <div class="grid">
+                    <select name="priority">
+                        <option value="LOW">Baixa</option>
+                        <option value="MEDIUM" selected>Média</option>
+                        <option value="HIGH">Alta</option>
+                    </select>
+                    <input name="dueDate" type="date" />
+                </div>
+                <button type="submit">Salvar tarefa</button>
+            </form>
+        </div>
+        <div id="taskList" class="task-list"></div>
+    </section>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
