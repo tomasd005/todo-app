@@ -9,9 +9,13 @@ public class Subtask {
     private boolean completed;
 
     public Subtask(String title) {
-        this.id = UUID.randomUUID().toString();
+        this(UUID.randomUUID().toString(), title, false);
+    }
+
+    public Subtask(String id, String title, boolean completed) {
+        this.id = id;
         this.title = title;
-        this.completed = false;
+        this.completed = completed;
     }
 
     public String getId() {

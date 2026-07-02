@@ -104,7 +104,6 @@ public class JpaUserRepository implements UserRepository {
     }
 
     private User toModel(UserEntity entity) {
-        User user = new User(entity.getUsername(), entity.getPasswordHash());
-        return user;
+        return new User(entity.getId(), entity.getUsername(), entity.getPasswordHash());
     }
 }

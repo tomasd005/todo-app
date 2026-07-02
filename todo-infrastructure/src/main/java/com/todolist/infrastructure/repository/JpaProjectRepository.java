@@ -88,7 +88,6 @@ public class JpaProjectRepository implements ProjectRepository {
     }
 
     private Project toModel(ProjectEntity entity) {
-        Project project = new Project(entity.getName(), entity.getDescription());
-        return project;
+        return new Project(entity.getId(), entity.getName(), entity.getDescription());
     }
 }

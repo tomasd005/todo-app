@@ -105,14 +105,18 @@ public class JpaTaskRepository implements TaskRepository {
     }
 
     private Task toModel(TaskEntity entity) {
-        Task task = new Task(entity.getTitle(), entity.getDescription(), Priority.valueOf(entity.getPriority()), entity.getProjectId());
+        Task task = new Task(entity.getId(), entity.getTitle(), entity.getDescription(), Priority.valueOf(entity.getPriority()), entity.getProjectId());
         task.setStatus(TaskStatus.valueOf(entity.getStatus()));
         task.setDueDate(entity.getDueDate());
         for (String tag : entity.getTags()) {
             task.addTag(tag);
         }
         for (SubtaskEntity subtaskEntity : entity.getSubtasks()) {
-            task.addSubtask(new com.todolist.domain.model.Subtask(subtaskEntity.getTitle()));
+            task.addSubtask(new com.todolist.domain.model.Subtask(
+                    subtaskEntity.getId(),
+                    subtaskEntity.getTitle(),
+                    subtaskEntity.isCompleted()
+            ));
         }
         return task;
     }

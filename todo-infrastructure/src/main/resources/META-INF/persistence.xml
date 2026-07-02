@@ -6,6 +6,7 @@
     <persistence-unit name="todoPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.todolist.infrastructure.entity.TaskEntity</class>
+        <class>com.todolist.infrastructure.entity.SubtaskEntity</class>
         <class>com.todolist.infrastructure.entity.ProjectEntity</class>
         <class>com.todolist.infrastructure.entity.UserEntity</class>
         <properties>

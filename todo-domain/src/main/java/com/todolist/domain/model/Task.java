@@ -18,8 +18,12 @@ public class Task {
     private final List<Subtask> subtasks;
 
     public Task(String title, String description, Priority priority, String projectId) {
-        this.id = UUID.randomUUID().toString();
+        this(UUID.randomUUID().toString(), title, description, priority, projectId);
+    }
+
+    public Task(String id, String title, String description, Priority priority, String projectId) {
         this.title = title;
+        this.id = id;
         this.description = description;
         this.priority = priority;
         this.status = TaskStatus.TODO;
